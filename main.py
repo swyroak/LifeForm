@@ -15,7 +15,7 @@ def hello(name=None):
         cycles.append(basecycle(cycles[i]))
     for cycle in cycles:
         print(cycle)
-    return render_template('main.html', name=name, cycles=152)
+    return render_template('main.html', name=name, cycles=20)
 
 
 if __name__ == "__main__":
