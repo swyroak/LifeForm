@@ -11,8 +11,11 @@
 
 <body>
     <div class="consolewindow">
-        {{ cycles }}
-        this is console windowsss
+        {% for cycle in cycles %}
+        {%for i in cycle%}
+        <p>{{i}}</p>
+        {% endfor %}
+        {% endfor %}
     </div>
     <div class="menu">
         this is menu

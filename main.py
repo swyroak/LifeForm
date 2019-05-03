@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello(name=None):
+def hello():
     basefield = Field()
     cycles = []
     cycles.append(basecycle(basefield.get_room()))
@@ -15,7 +15,7 @@ def hello(name=None):
         cycles.append(basecycle(cycles[i]))
     for cycle in cycles:
         print(cycle)
-    return render_template('main.html', name=name, cycles=152)
+    return render_template('main.html', cycles=cycles)
 
 
 if __name__ == "__main__":
