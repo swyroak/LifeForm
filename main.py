@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template
 from createfield import Field
 from lifecycle import basecycle
-
+from changetostring import ChangeToString
 app = Flask(__name__)
 
 
@@ -10,7 +10,9 @@ app = Flask(__name__)
 def hello():
     basefield = Field()
     cycles = []
-    cycles.append(basecycle(basefield.get_room()))
+    buffiled = basecycle(basefield.get_room())
+    buffiled = ChangeToString(buffiled)
+    cycles.append(buffiled.returnstringfiled)
     for i in range(11):
         cycles.append(basecycle(cycles[i]))
     for cycle in cycles:
