@@ -10,14 +10,17 @@ app = Flask(__name__)
 def hello():
     basefield = Field()
     cycles = []
+    bufcycles = []
     buffiled = basecycle(basefield.get_room())
-    buffiled = ChangeToString(buffiled)
-    cycles.append(buffiled.returnstringfiled)
-    for i in range(11):
+    cycles.append(buffiled)
+    bufcycles.append(ChangeToString(cycles[0]).get_stringfiled())
+    for i in range(5):
         cycles.append(basecycle(cycles[i]))
-    for cycle in cycles:
-        print(cycle)
-    return render_template('main.html', cycles=cycles)
+        bufcycles.append(ChangeToString(cycles[i]).get_stringfiled())
+    print(bufcycles)
+    print(cycles)
+
+    return render_template('main.html', cycles=bufcycles)
 
 
 if __name__ == "__main__":
