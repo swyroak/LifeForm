@@ -12,10 +12,11 @@
 <body>
     <div class="consolewindow">
         {% for cycle in cycles %}
-        {%for i in cycle%}
-        <p>{{i}}</p>
-        {% endfor %}
-        <br>
+        <div class="gen">
+            {%for i in cycle%}
+            <p>{{i}}</p>
+            {% endfor %}
+        </div>
         {% endfor %}
     </div>
     <div class="menu">
