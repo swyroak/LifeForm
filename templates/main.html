@@ -14,9 +14,13 @@
         {% for cycle in cycles %}
         <div class="gen">
             {%for i in cycle%}
-            <p>{{i}}</p>
+            {%for j in i%}
+            <p>{{j}}</p>
+            {% endfor %}
+            <br>
             {% endfor %}
         </div>
+        ----------------------------------------------
         {% endfor %}
     </div>
     <div class="menu">
