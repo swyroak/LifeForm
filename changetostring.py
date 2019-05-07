@@ -7,7 +7,7 @@ class ChangeToString():
         self.__booleanfield = booleanfield
 
     def get_stringfiled(self):
-        self.__buffiled = np.where(self.__booleanfield == 1, "■", "□")
+        self.__buffiled = np.where(self.__booleanfield == 1, '■', '□')
         return self.__buffiled
 
 
