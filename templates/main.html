@@ -5,26 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='normalize.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" )>
+    <link rel="stylesheet" href="{{url_for('static',filename='skeleton.css')}}">
     <title>{{ name }}</title>
 </head>
 
 <body>
-    <div class="consolewindow">
-        {% for cycle in cycles %}
-        <div class="gen">
-            {%for i in cycle%}
-            {%for j in i%}
-            <p>{{j}}</p>
-            {% endfor %}
-            <br>
-            {% endfor %}
+    <script>
+        let field = {{ cycles }}
+    </script>
+    <div class="container">
+        <div class="row">
+            <div class="puff eleven columns"></div>
         </div>
-        ----------------------------------------------
-        {% endfor %}
-    </div>
-    <div class="menu">
-        this is menu
+        <div class="row">
+            <div class="eleven columns">
+                <div class="console">
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="puff eleven columns"></div>
+        </div>
+        <form>
+            <div class="row">
+                <div class="one-harf column">
+                    <button class=".button-primary">
+                        製成
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 

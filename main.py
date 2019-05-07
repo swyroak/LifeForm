@@ -1,8 +1,9 @@
-from flask import Flask
-from flask import render_template
-from createfield import ConstFiled
-from lifecycle import basecycle
 from changetostring import ChangeToString
+from lifecycle import basecycle
+from createfield import ConstFiled
+from flask import render_template
+from flask import Flask
+import numpy as np
 app = Flask(__name__)
 
 
@@ -20,9 +21,10 @@ def hello():
     print(bufcycles)
     print(cycles)
 
-    return render_template('main.html', cycles=bufcycles)
+    return render_template('main.html', cycles=cycles, name="a")
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    hello()
+    # app.run(debug=True)
     # app.run('0.0.0.0',port=8080)
