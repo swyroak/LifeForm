@@ -9,14 +9,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    basefield = ConstFiled(20, 20)
+    basefield = ConstFiled(50, 50)
     cycles = []
     strcycles = []
     arycycles = []
     buffiled = basecycle(basefield.get_room())
     cycles.append(buffiled)
     strcycles.append(ChangeToString(cycles[0]).get_stringfiled())
-    for i in range(100):
+    for i in range(300):
         bufcycle = basecycle(cycles[i])
         bufarycycle = bufcycle.tolist()
         bufstrcycle = ChangeToString(bufcycle).get_stringfiled().tolist()
@@ -24,7 +24,7 @@ def hello():
         arycycles.append(bufarycycle)
         strcycles.append(bufstrcycle)
 
-    return render_template('main.html', cycles=arycycles, name="a")
+    return render_template('main.html', cycles=strcycles, name="a")
 
 
 if __name__ == "__main__":
