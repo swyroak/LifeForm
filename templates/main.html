@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="eleven columns">
-                <div class="console">
+                <div class="console" id="cns">
 
                 </div>
             </div>
@@ -39,6 +39,31 @@
             </div>
         </form>
     </div>
+    <script>
+        for (let k = 0; k < 100; k++) {
+            syori(k);
+        }
+
+        async function syori(k) {
+            let cns = document.getElementById('cns')
+            for (let i = 0; i < field[k].length; i++) {
+                for (let j = 0; j < field[0][i].length; j++) {
+                    if (field[0][i][j] == 1) {
+                        cns.innerHTML = cns.innerHTML + "■"
+                    } else {
+                        cns.innerHTML = cns.innerHTML + "□"
+                    }
+                }
+                cns.innerHTML = cns.innerHTML + '<br>'
+            }
+            await sleep(500);
+        }
+
+        function sleep(milliseconds) {
+            return new Promise(resolve => setTimeout(resolve, milliseconds));
+        }
+
+    </script>
 </body>
 
 </html>
