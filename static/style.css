@@ -1,10 +1,18 @@
+.body {
+  background-color: darkturquoise;
+}
+
 .console {
   width: 100%;
   height: 960px;
-  background-color: black;
+  background-color: white;
   border-radius: 5px;
-  font-size: 2.5em;
+  font-size: 1em;
   line-height: 0.6;
+}
+
+.console p {
+  display: inline;
 }
 
 .puff {
