@@ -4,6 +4,9 @@ from flask import render_template
 from flask import Flask
 from imaging import ImagingObjct
 from PIL import Image
+import datetime
+import random
+import os
 
 app = Flask(__name__)
 
@@ -20,7 +23,7 @@ def hello():
     buffiled = basecycle(basefield.get_room())
 
     cycles.append(buffiled)
-    img = Image.new('RGB', (height * 6 + 1, width * 6 + 1))
+    img = Image.new('RGB', (height * 4 + 1, width * 4 + 1))
     images.append(ImagingObjct(buffiled, height, width).get_img())
     for i in range(500):
         bufcycle = basecycle(cycles[i])
@@ -28,10 +31,12 @@ def hello():
         cycles.append(bufcycle)
         arycycles.append(bufarycycle)
         images.append(ImagingObjct(bufcycle, height, width).get_img())
-    img.save('static/img.gif', save_all=True, append_images=images[1:],
-             optimize=False, duration=100, loop=0)
-
-    return render_template('main.html', cycles=arycycles, name="a")
+    dname = 'static/temp' + datetime.datetime.today().strftime('%Y%m%d%H%M%S%f') + \
+        str(random.randint(1, 9999))
+    os.mkdir(dname)
+    img.save(dname + '/img.gif', save_all=True,
+             append_images=images[1:], optimize=False, duration=100, loop=0)
+    return render_template('main.html', dname=dname + '/img.gif', name="a")
 
 
 if __name__ == "__main__":
