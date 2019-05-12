@@ -29,11 +29,13 @@ class ImagingObjct():
         # savename = 'dev' + str(random.randrange(1, 100000))
         # self.__img.save(savename + '.jpg', quality=50)
 
-    def sss(self):
+    def get_img(self):
+        # self.__img.show()
         return self.__img
+
 
 if __name__ == "__main__":
     fld = Field()
     objimage = ImagingObjct(fld.get_room(), fld.get_height(), fld.get_width())
-    h=objimage.sss()
+    h = objimage.sss()
     h.show()

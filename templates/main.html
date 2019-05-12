@@ -19,16 +19,7 @@
         <div class="row">
             <div class="eleven columns">
                 <div class="console" id="cns">
-                    {% for iSS in cycles  %}
-                    {% for is in iSS %}
-                    <div>
-                        {% for i in is %}
-                        <p>{{i}}</p>
-                        {% endfor%}
-                    </div>
-                    {% endfor %}
-                    <br>
-                    {% endfor %}
+                    <img src="{{url_for('static',filename='img.gif')}}" alt="">
                 </div>
             </div>
         </div>
