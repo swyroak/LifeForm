@@ -6,22 +6,27 @@ from imaging import ImagingObjct
 from PIL import Image
 import datetime
 import random
+import shutil
 import os
+import pathlib
+
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def hello():
+    p_temp = pathlib.Path('static')
+    for p in p_temp.glob('temp*'):
+        shutil.rmtree('static/' + p.name)
+
     height = 50
     width = 50
     basefield = ConstFiled(height, width)
     cycles = []
     arycycles = []
     images = []
-
     buffiled = basecycle(basefield.get_room())
-
     cycles.append(buffiled)
     img = Image.new('RGB', (height * 4 + 1, width * 4 + 1))
     images.append(ImagingObjct(buffiled, height, width).get_img())
