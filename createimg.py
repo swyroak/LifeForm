@@ -10,6 +10,7 @@ def createimg():
     p_temp = pathlib.Path('static')
     for p in p_temp.glob('temp*'):
         os.remove('static/' + p.name)
+        # os.remove('/var/www/LifeFrom/static/' + p.name)
 
     height = 50
     width = 50
@@ -27,7 +28,8 @@ def createimg():
         cycles.append(bufcycle)
         arycycles.append(bufarycycle)
         images.append(ImagingObjct(bufcycle, height, width).get_img())
-    dname = 'static/tempimg.gif'
+    dname = '/tempimg.gif'
+    # dname='/var/www/LifeFrom/tempimg.gif'
     img.save(dname, save_all=True,
              append_images=images[1:], optimize=False, duration=100, loop=0)
 
