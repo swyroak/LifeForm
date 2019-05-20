@@ -11,6 +11,12 @@ def hello():
     return render_template('main.html', name="a")
 
 
+@app.route('/restart')
+def hello2():
+    createimg.createimg()
+    return render_template('main.html', name="a")
+
+
 if __name__ == "__main__":
     if sys.platform == 'darwin':
         app.run(debug=True)
