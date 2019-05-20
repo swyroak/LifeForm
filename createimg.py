@@ -31,7 +31,7 @@ def createimg():
     images = []
     buffiled = basecycle(basefield.get_room())
     cycles.append(buffiled)
-    img = Image.new('RGB', (height * 4 + 1, width * 4 + 1))
+    img = Image.new('RGB', (height * 8 + 1, width * 8 + 1))
     images.append(ImagingObjct(buffiled, height, width).get_img())
     for i in range(500):
         bufcycle = basecycle(cycles[i])

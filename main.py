@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    createimg.createimg()
+    # createimg.createimg()
     return render_template('main.html', name="a")
 
 
