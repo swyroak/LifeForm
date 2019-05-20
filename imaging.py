@@ -7,8 +7,8 @@ from createfield import ConstFiled
 
 class ImagingObjct():
     def __init__(self, fieldS, height, width):
-        self.__height = height * 4 + 1
-        self.__Width = width * 4 + 1
+        self.__height = height * 8 + 1
+        self.__Width = width * 8 + 1
         self.__img = Image.new('RGB', (self.__Width, self.__height))
         # self.__img.show()
         self.__draw = ImageDraw.Draw(self.__img)
@@ -18,13 +18,13 @@ class ImagingObjct():
             for fieldobj in field:
                 if fieldobj:
                     self.__draw.rectangle(
-                        [i, j, i + 2, j + 2], fill='White')
+                        [i, j, i + 4, j + 4], fill='White')
                 # else:
                 #    self.__draw.rectangle(
                 #        [i, j, i + 4, j + 4], fill='Black', outline='White')
-                i += 4
+                i += 8
             i = 1
-            j += 4
+            j += 8
         # self.__img.show()
         # savename = 'dev' + str(random.randrange(1, 100000))
         # self.__img.save(savename + '.jpg', quality=50)
