@@ -1,5 +1,4 @@
-from flask import render_template
-from flask import Flask
+from flask import Flask, render_template, request
 import createimg
 import sys
 app = Flask(__name__)
@@ -8,13 +7,15 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     # createimg.createimg()
-    return render_template('main.html', name="a")
+    return render_template('main.html', gens=30)
 
 
-@app.route('/restart')
-def hello2():
-    createimg.createimg()
-    return render_template('main.html', name="a")
+@app.route('/restart', methods=['GET', 'POST'])
+def hello2(gens):
+    # gens=request.args.get()
+    print(gens)
+    createimg.createimg(30)
+    return render_template('main.html', gens=30)
 
 
 if __name__ == "__main__":

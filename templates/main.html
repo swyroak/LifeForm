@@ -19,6 +19,7 @@
                 minSlides: 1,
                 maxSlides: 15,
                 slideWidth: 77,
+                slideMargin: 5,
                 pager: true,
                 pagerType: 'short',
                 captions: true
@@ -55,7 +56,7 @@
             <div class="twelve columns">
                 <div class="console">
                     <div class="slider2" id="cns">
-                        {% for n in range(500) %}
+                        {% for n in range(gens) %}
                         <img src="static/imgs/img{{n}}.jpg">
                         {% endfor %}
                     </div>
@@ -65,8 +66,9 @@
         <div class="row">
             <div class="twelve columns">
                 <div class="slider">
-                    {% for n in range(500) %}
-                    <div class="slideimage"><img src="static/imgs/img{{n}}.jpg" title='第{{n}}世代'></div>
+                    {% for n in range(gens) %}
+                    <div class="slideimage"><img src="static/imgs/img{{n}}.jpg" title='第{{n}}世代'>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
@@ -78,22 +80,16 @@
             <div class="row">
                 <div class="six columns">
 
-                    <form action="/restart">
-                        <button class=".button-primary">
+                    <form action="/" method="POST">
+                        <button class=".button-primary" type="submit" name="" value="">
                             新しい瓶を製成
                         </button>
+
+                        世代数
+                        <input type="range" value="500" min="10" max="1000" step="1"
+                            oninput="document.getElementById('output1').value=this.value">
+                        <output id="output1">500</output>
                     </form>
-                    <form action="#">
-                        <button class=".button-primary">
-                            瓶をローカルに保存
-                        </button>
-                    </form>
-                </div>
-                <div class="six columns">
-                    世代数
-                    <input type="range" value="500" min="10" max="1000" step="1" name="" id=""
-                        oninput="document.getElementById('output1').value=this.value">
-                    <output id="output1">500</output>
                 </div>
             </div>
         </form>
