@@ -7,7 +7,7 @@ import sys
 import shutil
 
 
-def createimg():
+def createimg(gens):
     if sys.platform == 'darwin':
         imgpath = 'static/imgs'
         if os.path.exists(imgpath):
@@ -33,7 +33,7 @@ def createimg():
     cycles.append(buffiled)
 
     # images.append(ImagingObjct(buffiled, height, width).get_img())
-    for i in range(500):
+    for i in range(gens):
         bufcycle = basecycle(cycles[i])
         bufarycycle = bufcycle.tolist()
         cycles.append(bufcycle)
