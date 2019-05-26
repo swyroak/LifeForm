@@ -23,6 +23,16 @@
                 pagerType: 'short',
                 captions: true
             });
+            $('.slider2').bxSlider({
+                auto: true,
+                autoControls: true,
+                pause: 100,
+                mode: 'fade',
+                speed: 1,
+                pager: false,
+                stopAutoOnClick: true,
+                captions: false
+            });
         });
     </script>
     <title>コンウェイの箱庭</title>
@@ -43,8 +53,12 @@
         </div>
         <div class="row">
             <div class="twelve columns">
-                <div class="console" id="cns">
-                    <img src="{{url_for('static',filename='imgs/tempimg.gif') }}" width='100%'>
+                <div class="console">
+                    <div class="slider2" id="cns">
+                        {% for n in range(500) %}
+                        <img src="static/imgs/img{{n}}.jpg">
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>

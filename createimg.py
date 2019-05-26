@@ -28,27 +28,28 @@ def createimg():
     basefield = ConstFiled(height, width)
     cycles = []
     arycycles = []
-    images = []
+    # images = []
     buffiled = basecycle(basefield.get_room())
     cycles.append(buffiled)
-    img = Image.new('RGB', (height * 8 + 1, width * 8 + 1))
-    images.append(ImagingObjct(buffiled, height, width).get_img())
+
+    # images.append(ImagingObjct(buffiled, height, width).get_img())
     for i in range(500):
         bufcycle = basecycle(cycles[i])
         bufarycycle = bufcycle.tolist()
         cycles.append(bufcycle)
         arycycles.append(bufarycycle)
         bufimg = ImagingObjct(bufcycle, height, width).get_img()
-        images.append(bufimg)
+        # images.append(bufimg)
         bufimgname = 'static/imgs/img' + str(i) + '.jpg'
         bufimg.save(bufimgname, format='jpeg')
 
-    if sys.platform == 'darwin':
-        dname = 'static/imgs/tempimg.gif'
-    else:
-        dname = '/var/www/LifeFrom/tempimg.gif'
-    img.save(dname, save_all=True,
-             append_images=images[1:], optimize=False, duration=100, loop=0)
+    # if sys.platform == 'darwin':
+    #     dname = 'static/imgs/tempimg.gif'
+    # else:
+    #     dname = '/var/www/LifeFrom/tempimg.gif'
+    # img = Image.new('RGB', (height * 8 + 1, width * 8 + 1))
+    # img.save(dname, save_all=True,
+    #          append_images=images[1:], optimize=False, duration=100, loop=0)
 
 
 if __name__ == "__main__":
